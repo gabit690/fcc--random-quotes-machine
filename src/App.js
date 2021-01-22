@@ -3,11 +3,24 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
+import QuoteBox from './QuoteBox';
+import { useState } from 'react';
+
+const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
 
 function App() {
-  return (
-    <div className="App">
 
+  const [color, setColor] = useState(0);
+
+  function changeColor() {
+    setColor((color < (rainbowColors.length - 1) ? color + 1 : 0));
+  }
+
+  return (
+    <div className="App" style={{backgroundColor: rainbowColors[color]}}>
+      <h1 className="text-center">Random quotes machine.</h1>
+      <QuoteBox setColor={changeColor} />
+      <p id="author-page">Gabit 2021</p>
     </div>
   );
 }
@@ -15,13 +28,6 @@ function App() {
 export default App;
 
 /*
-
-Front End Libraries Projects - Build a Random Quote Machine
-Objective: Build a CodePen.io app that is functionally similar to this: https://codepen.io/freeCodeCamp/full/qRZeGZ.
-
-Fulfill the below user stories and get all of the tests to pass. Give it your own personal style.
-
-You can use any mix of HTML, JavaScript, CSS, Bootstrap, SASS, React, Redux, and jQuery to complete this project. You should use a frontend framework (like React for example) because this section is about learning frontend frameworks. Additional technologies not listed above are not recommended and using them is at your own risk. We are looking at supporting other frontend frameworks like Angular and Vue, but they are not currently supported. We will accept and try to fix all issue reports that use the suggested technology stack for this project. Happy coding!
 
 User Story #1: I can see a wrapper element with a corresponding id="quote-box".
 
@@ -42,6 +48,8 @@ User Story #8: When the #new-quote button is clicked, my quote machine should fe
 User Story #9: My quote machine should fetch the new quote's author when the #new-quote button is clicked and display it in the #author element.
 
 User Story #10: I can tweet the current quote by clicking on the #tweet-quote``a element. This a element should include the "twitter.com/intent/tweet" path in its href attribute to tweet the current quote.
+
+https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/guides/web-intent
 
 User Story #11: The #quote-box wrapper element should be horizontally centered. Please run tests with browser's zoom level at 100% and page maximized.
 
