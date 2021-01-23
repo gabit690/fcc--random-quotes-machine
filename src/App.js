@@ -17,10 +17,10 @@ function App() {
   }
 
   return (
-    <div className="App" style={{backgroundColor: rainbowColors[color]}}>
-      <h1 className="text-center">Random quotes machine.</h1>
-      <QuoteBox setColor={changeColor} />
-      <p id="author-page">By Gabit</p>
+    <div className="App container-fluid" style={{backgroundColor: rainbowColors[color]}}>
+      <h1 className="text-center pt-3">Random quotes machine</h1>
+      <p className="text-center text-light" id="author-page">By Gabit</p>
+      <QuoteBox setColor={changeColor} btnColor={rainbowColors[color]} />
     </div>
   );
 }
