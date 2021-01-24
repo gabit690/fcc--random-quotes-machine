@@ -70,8 +70,8 @@ function QuoteBox(props) {
   return (
     <div className="container-sm bg-light rounded shadow-lg" id="quote-box">
       <div className="row">
-        <div className="col-md-9 d-flex flex-column">
-          <q className="blockquote font-italic font-weight-bold text-center pt-4" id="text">{quote.phrase}</q>
+        <div className="col-md-9 d-flex flex-column py-md-5">
+          <q className="blockquote font-italic font-weight-bold text-center pt-4 pt-md-5" id="text">{quote.phrase}</q>
           <p className="text-right" id="author"><span>- </span>{quote.game}</p>
         </div>
         <div className="col-md-3 d-flex border justify-content-around align-items-center py-3 flex-md-column">
